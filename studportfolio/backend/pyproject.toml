@@ -1,0 +1,15 @@
+[project]
+name = "studportfolio"
+version = "1.0.0"
+description = "СтудПортфолио - студенческий портал мероприятий"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlalchemy",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+    "python-multipart",
+    "aiofiles",
+    "bcrypt==4.0.1",
+]

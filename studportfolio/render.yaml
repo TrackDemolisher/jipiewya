@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: studportfolio
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: studportfolio-data
+      mountPath: /data
+      sizeGB: 1
