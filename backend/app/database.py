@@ -1,9 +1,11 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.models.models import Base, User, Event, UserRole, EventStatus, EventCategory
 from passlib.context import CryptContext
 
-DATABASE_URL = "sqlite:///./portal.db"
+DATA_DIR = os.environ.get("DATA_DIR", ".")
+DATABASE_URL = f"sqlite:///{os.path.join(DATA_DIR, 'portal.db')}"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
